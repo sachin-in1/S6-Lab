@@ -1,0 +1,20 @@
+ORG 000H
+MOV A,R1 ;number of fib numbers
+MOV R7,A
+MOV R0,#10H ;starting address to store
+MOV B,#01H
+CLR C
+SUBB A,#02H
+MOV R7,A
+MOV @R0,B
+INC R0
+MOV @R0,B
+INC R0
+MOV A,B
+Find:MOV R2,A
+ADD A,B
+MOV @R0,A
+INC R0
+MOV B,R2
+DJNZ R7,Find
+END
